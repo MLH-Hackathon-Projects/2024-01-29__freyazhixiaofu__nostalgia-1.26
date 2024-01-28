@@ -56,11 +56,11 @@ def txt_to_matrix(v_text: str):
         for node1 in nodes:
             for node2 in nodes:
                 if node1 != node2:
-                    if 'if node1 or node2' in connections:  # not sure if the parenthesis should be added
+                    if f'if {node1} ,then {node2}' in connections:  # not sure if the parenthesis should be added
                         G.add_edges_from([node1, node2])
 
-        # nx.draw(G, with_labels=True, font_weight='bold')    # Draw the graph
-        # plt.show()  # Show the plot
+        nx.draw(G, with_labels=True, font_weight='bold')    # Draw the graph
+        plt.show()  # Show the plot
         return nx.incidence_matrix(G)  # Convert to incidence matrix
 
     return creat_graph(nodes, connectives)
